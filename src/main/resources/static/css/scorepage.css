@@ -1,0 +1,12 @@
+table {
+    background-color: antiquewhite;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+
+}
+
+table tr {
+    border-bottom: 2px solid white;
+    line-height: 35px;
+}

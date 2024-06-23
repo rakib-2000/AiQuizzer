@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments/header.html :: header ('/css/homepage.css', 'Home Page')"></div>
+<body>
+
+<!-- NavBar Starts-->
+<div th:insert="fragments/navbar.html :: navbar"></div>
+<!-- NavBar Ends-->
+
+<!-- Content Starts-->
+<div class="main-container container py-5 px-4">
+    <div class="grid-wrapper">
+        <div class="left-div">
+            <img th:src="@{/image/xm.jpeg}" alt="Exam Image">
+        </div>
+
+        <div class="right-div">
+            <h1>Spring Boot Quiz</h1>
+            <form class="bg-dark py-5 px-4 card" th:action="@{/quiz}" method="post" >
+                <label for="username">Enter Your Name</label>
+                <input type="text" id="username" name="username" >
+                <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
+                <button type="submit" class="btn btn-warning">Start Quiz</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Content Ends-->
+
+<!-- Footer Starts-->
+<div th:insert="fragments/footer.html :: footer"></div>
+<!-- Footer Ends-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

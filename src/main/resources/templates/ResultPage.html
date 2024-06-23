@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments/header.html :: header ('/css/resultpage.css', 'Result Page')"></div>
+<body>
+
+<!-- NavBar Starts-->
+<div th:insert="fragments/navbar.html :: navbar"></div>
+<!-- NavBar Ends-->
+
+<!-- Content Starts-->
+<div class="main-container container py-5 px-4">
+    <div class="card bg-dark text-light py-5 px-4 mx-auto">
+        <img th:src="@{/image/xm.jpeg}" alt="Image">
+
+        <h3 class="bg-danger text-center mb-5 p-2">Your Score</h3>
+
+        <div class="group d-flex justify-content-center">
+            <p>Participant name:&nbsp;</p>
+            <p th:if="${result}" th:text="${result.username}"></p>
+
+        </div>
+        <div class="group d-flex justify-content-center">
+            <p>Total correct answer:&nbsp;</p>
+            <p th:if="${result}" th:text="${result.totalCorrect}"></p>
+        </div>
+        <div class="group d-flex justify-content-center">
+            <p>Total false answer:&nbsp;</p>
+            <p th:if="${result}" th:text="5 - ${result.totalCorrect}"></p>
+
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button type="button" class="mx-auto btn btn-outline-warning" th:onclick="window.location.href='/score'">View Score Board</button>
+            <button type="button" class="mx-auto btn btn-outline-warning" th:onclick="window.location.href='/'">Back to Homepage</button>
+        </div>
+
+
+    </div>
+
+</div>
+<!-- Content Ends-->
+
+<!-- Footer Starts-->
+<div th:insert="fragments/footer.html :: footer"></div>
+<!-- Footer Ends-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
